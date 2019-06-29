@@ -1,0 +1,192 @@
+=head1 NAME
+
+IO::BlockSync - Syncronize changed blocks
+
+=head1 VERSION
+
+Version 0.001
+
+
+=cut
+
+=head1 SYNOPSIS
+
+BlockSync can some of the same stuff that bigsync (by Egor Egorov) can
+- it's just written in perl.
+
+BlockSync copies data from source file to destination file (can be a block
+device) and calculates checksum on each block it copies.
+On all runs after the first only the changed blocks will be copied.
+
+    use IO::BlockSync;
+
+    # OOP way
+    my $bs = IO::BlockSync->new(
+        src => '/path/to/source/file',
+        dst => '/path/to/destination/file',
+        chk => '/path/to/chk/file',
+    );
+    $bs->run;
+
+    # Non OOP way
+    BlockSync(
+        src => '/path/to/source/file',
+        dst => '/path/to/destination/file',
+        chk => '/path/to/chk/file',
+    );
+
+
+=cut
+
+=head1 EXPORT
+
+
+=cut
+
+=head2 BlockSync
+
+Run BlockSync non-object-oriented
+
+
+=cut
+
+=head1 ATTRIBUTES
+
+
+=cut
+
+=head2 src
+
+Path to source file.
+
+mandatory - string (containing path) or filehandle
+
+
+=cut
+
+=head2 dst
+
+Destination file. If not set, then only checksum file will be updated.
+
+optional - string (containing path) or filehandle
+
+
+=cut
+
+=head2 chk
+
+Path to checksum file.
+
+mandatory - string (containing path) or filehandle
+
+
+=cut
+
+=head2 bs
+
+Block size to use in bytes.
+
+optional - integer - defaults to 1_048_576 B (1 MB)
+
+
+=cut
+
+=head2 hash
+
+Sub that retrurn hashed data.
+
+optional - sub - defaults to sub that return MD5 hash followed by newline
+
+
+=cut
+
+=head2 sparse
+
+Seek in dst file, instead of writing blocks only containing \0
+
+optional - boolean - defaults to 0 (false)
+
+
+=cut
+
+=head2 truncate
+
+Truncate the destination file to same size as source file. Does not work on block devices. Will only be tried if C<data> has default value (whole file is copied).
+
+optional - boolean - defaults to 0 (false)
+
+
+=cut
+
+=head2 data
+
+List of areas (in bytes) inside the source file that should be looked at.
+Usefull if you know excactly which blocks in src that could have changed.
+
+data => [
+    {start => 0, end => 9999},
+    {start => 88888, end => 777777},
+]
+
+optional - array of hashes - defaults to "whole file"
+
+
+=cut
+
+=head2 status
+
+Sub that will be run everytime a block has been read (and written).
+
+optional - sub - default to sub doing nothing
+
+
+=cut
+
+=head1 METHODS
+
+
+=cut
+
+=head2 run
+
+This is the method that starts copying data.
+
+
+=cut
+
+=begin comment
+
+Private
+Get file handle
+
+=end comment
+
+
+=cut
+
+=head1 LICENSE AND COPYRIGHT
+
+This software is copyright (c) 2019 by Thor Dreier-Hansen.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+Terms of the Perl programming language system itself:
+
+=over
+
+=item * the 
+        L<GNU General Public License|http://dev.perl.org/licenses/gpl1.html>
+        as published by the Free Software Foundation; either
+        L<version 1|http://dev.perl.org/licenses/gpl1.html>,
+        or (at your option) any later version, or
+
+=item * the L<"Artistic License"|http://dev.perl.org/licenses/artistic.html>
+
+=back
+
+See L<http://dev.perl.org/licenses/> for more information.
+
+
+=cut
+
