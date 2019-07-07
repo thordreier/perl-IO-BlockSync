@@ -49,6 +49,7 @@ done
 
 color_echo 'Copy/replace POD'
 copy_pod lib/IO/BlockSync/App.pm bin/blocksync
+sed -i -e 's/IO::BlockSync::App - Perl module/blocksync - CLI command/' bin/blocksync
 
 color_cmd 'perl Makefile.PL'
 color_cmd 'make test'
@@ -86,3 +87,5 @@ cpan .
 
 color_echo 'Testing blocksync'
 ./misc/blocksynctest.sh
+
+color_cmd 'make dist'

@@ -26,6 +26,17 @@ WriteMakefile(
         'MooX::Options'         => '4.023',
         'Try::Tiny'             => '0.28',
     },
+    META_MERGE => {
+        "meta-spec" => { version => 2 },
+        resources   => {
+            homepage   => 'https://github.com/thordreier/',
+            repository => {
+                type => 'git',
+                url  => 'git://github.com/thordreier/perl-IO-BlockSync.git',
+                web  => 'https://github.com/thordreier/perl-IO-BlockSync',
+            },
+        },
+    },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES    => 'IO-BlockSync-*' },
 );

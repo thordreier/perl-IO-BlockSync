@@ -1,10 +1,10 @@
-=head1 NAME AND VERSION
+=head1 NAME
 
 IO::BlockSync - Syncronize changed blocks
 
 =head1 VERSION
 
-Version 0.001
+Version 0.002
 
 =head1 SYNOPSIS
 
@@ -33,7 +33,7 @@ and the C<blocksync> command.
 
 Install directly from CPAN mirror:
 
-    #cpan IO::BlockSync # Not available yet
+    cpan IO::BlockSync
 
 Or see
 L<How to install CPAN modules|http://www.cpan.org/modules/INSTALL.html>.
@@ -79,6 +79,7 @@ perldoc command:
 
 This documentation can also be found on
 L<GitHub|https://github.com/thordreier/perl-IO-BlockSync/blob/master/pod/IO-BlockSync.pod>
+or L<meta::cpan|https://metacpan.org/pod/IO::BlockSync>
 
 =head2 Executable
 
@@ -91,6 +92,7 @@ of these commands:
 
 Documentation can also be found on 
 L<GitHub|https://github.com/thordreier/perl-IO-BlockSync/blob/master/pod/blocksync.pod>
+or L<meta::cpan|https://metacpan.org/pod/distribution/IO-BlockSync/bin/blocksync>
 
 =head1 LICENSE AND COPYRIGHT
 

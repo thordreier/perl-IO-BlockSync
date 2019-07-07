@@ -4,7 +4,7 @@ IO::BlockSync - Syncronize changed blocks
 
 =head1 VERSION
 
-Version 0.001
+Version 0.002
 
 
 =cut
@@ -34,6 +34,17 @@ On all runs after the first only the changed blocks will be copied.
         dst => '/path/to/destination/file',
         chk => '/path/to/chk/file',
     );
+
+
+=cut
+
+=head1 INSTALLATION
+
+Look in C<README.pod>
+
+Can also be found on
+L<GitHub|https://github.com/thordreier/perl-IO-BlockSync/blob/master/README.pod>
+or L<meta::cpan|https://metacpan.org/pod/distribution/IO-BlockSync/README.pod>
 
 
 =cut

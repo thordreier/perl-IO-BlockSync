@@ -22,15 +22,15 @@ use IO::BlockSync;
 
 =head1 NAME
 
-IO::BlockSync::App (Perl module) or blocksync (command)
+IO::BlockSync::App - Perl module
 
 =head1 VERSION
 
-Version 0.001
+Version 0.002
 
 =cut
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 ################################################################
 
@@ -44,6 +44,18 @@ device) and calculates checksum on each block it copies.
 On all runs after the first only the changed blocks will be copied.
 
     blocksync -S -s /source/path -d /destination/path
+
+=cut
+
+################################################################
+
+=head1 INSTALLATION
+
+Look in C<README.pod>
+
+Can also be found on
+L<GitHub|https://github.com/thordreier/perl-IO-BlockSync/blob/master/README.pod>
+or L<meta::cpan|https://metacpan.org/pod/distribution/IO-BlockSync/README.pod>
 
 =cut
 
